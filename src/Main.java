@@ -1,8 +1,3 @@
-import builder.House;
-import builder.HouseBuilder;
-import builder.HouseDirector;
-import factory.HospitalBuilding;
-
 public class Main {
     public static void main(String[] args) {
 //        final HouseBuilder builder = new HouseBuilder();

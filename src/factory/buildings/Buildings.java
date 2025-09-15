@@ -1,4 +1,4 @@
-package factory;
+package factory.buildings;
 
 public abstract class Buildings {
     public Buildings(int floors, int width, int height, int floorsHeight) {

@@ -1,4 +1,6 @@
-package factory;
+package factory.builders;
+
+import factory.buildings.UniversityBuilding;
 
 public class BiGroup implements Builders{
     @Override

@@ -1,4 +1,6 @@
-package factory;
+package factory.builders;
+
+import factory.buildings.Buildings;
 
 public interface Builders {
 

@@ -1,4 +1,6 @@
-package factory;
+package factory.builders;
+
+import factory.buildings.HospitalBuilding;
 
 public class SensataGroup implements Builders{
     @Override
