@@ -1,39 +1,44 @@
 package builder;
 
 public class HouseBuilder implements IHouseBuilder{
-    private double height;
-    private double width;
-    private int windowsCount;
-    private int wallsCount;
-    private HouseMaterials material;
+    double height;
+    double width;
+    int windowsCount;
+    int wallsCount;
+    HouseMaterials material;
 
     @Override
-    public void setHeight(double height) {
+    public IHouseBuilder setHeight(double height) {
         this.height = height;
+        return this;
     }
 
     @Override
-    public void setWidth(double width) {
+    public IHouseBuilder setWidth(double width) {
         this.width = width;
+        return this;
     }
 
     @Override
-    public void setWindows(int windowCount) {
+    public IHouseBuilder setWindows(int windowCount) {
         this.windowsCount = windowCount;
+        return this;
     }
 
     @Override
-    public void setWalls(int wallsCount) {
+    public IHouseBuilder setWalls(int wallsCount) {
         this.wallsCount = wallsCount;
+        return this;
     }
 
     @Override
-    public void setMaterial(HouseMaterials material) {
+    public IHouseBuilder setMaterial(HouseMaterials material) {
         this.material = material;
+        return this;
     }
 
     @Override
     public House result() {
-        return new House(width, height, windowsCount, wallsCount, material);
+        return new House(this);
     }
 }

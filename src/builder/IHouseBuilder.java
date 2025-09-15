@@ -1,10 +1,10 @@
 package builder;
 
 public interface IHouseBuilder {
-    void setHeight(double height);
-    void setWidth(double width);
-    void setWindows(int windowCount);
-    void setWalls(int wallsCount);
-    void setMaterial(HouseMaterials material);
+    IHouseBuilder setHeight(double height);
+    IHouseBuilder setWidth(double width);
+    IHouseBuilder setWindows(int windowCount);
+    IHouseBuilder setWalls(int wallsCount);
+    IHouseBuilder setMaterial(HouseMaterials material);
     House result();
 }

@@ -1,12 +1,12 @@
 package builder;
 
 public class House {
-    House(double width, double height, int windowsCount, int wallsCount, HouseMaterials material) {
-        this.width = width;
-        this.height = height;
-        this.windowsCount = windowsCount;
-        this.wallsCount = wallsCount;
-        this.material = material;
+    House(HouseBuilder builder) {
+        this.width = builder.width;
+        this.height = builder.height;
+        this.windowsCount = builder.windowsCount;
+        this.wallsCount = builder.wallsCount;
+        this.material = builder.material;
     }
 
     public double height;
