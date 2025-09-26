@@ -3,6 +3,15 @@ import abstract_factory.factory.BMWYamahaFactory;
 import abstract_factory.factory.PorcheHondaFactory;
 import abstract_factory.factory.VechicleFactory;
 import abstract_factory.morotcycle.Motorcycle;
+import adapter.core.data.sources.remote.HttpService;
+import adapter.core.utils.noParams.NoParams;
+import adapter.data.respositories.UserRepositoryImpl;
+import adapter.data.sources.remote.UserRemoteImpl;
+import adapter.domain.entites.CreateUserReqParamsEntity;
+import adapter.domain.entites.UserEntity;
+import adapter.domain.respositories.UserRepository;
+import adapter.domain.usecases.CreateUserUsecase;
+import adapter.domain.usecases.GetUserUsecase;
 import factory.builders.BiGroup;
 import factory.builders.Builders;
 import factory.builders.SensataGroup;
@@ -47,5 +56,19 @@ public class Main {
 //        final VechicleFactory PorcheHondaFactory = new PorcheHondaFactory();
 //        car = PorcheHondaFactory.createCar();
 //        motorcycle = PorcheHondaFactory.createMotorcycle();
+
+
+        //Adapter pattern
+        final UserRepository repository = new UserRepositoryImpl(new UserRemoteImpl(new HttpService()));
+
+        final GetUserUsecase userUsecase = new GetUserUsecase(repository);
+        final CreateUserUsecase createUserUsecaase = new CreateUserUsecase(repository);
+
+        final UserEntity user = userUsecase.call(new NoParams());
+        final UserEntity createUser = createUserUsecaase.call(new CreateUserReqParamsEntity("beka", "beka", "beka@mail.ru"));
+
+
+        System.out.println("User: " + user);
+        System.out.println("Create User: " + createUser);
     }
 }
